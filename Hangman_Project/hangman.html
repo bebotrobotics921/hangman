@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="script/hangman.js" defer></script>
+    <title>HangMe</title>
+</head>
+<body>
+    <div class="container">
+      <header>
+        <h1 class="text-center">Hangman</h1>
+      </header>
+      
+       
+        <div>Wrong Guesses: <span id='mistakes'>0</span> / <span id='chances'></span></div>
+        <div class="text-center">
+          <img id='hangmanPic' src="./images/0.jpg" alt="">
+        
+          <p>Guess A Vegetable:</p>
+          <p id="wordSpotlight"></p>
+          <section id="lostPop">
+            <p>You LOST!</p>
+            <p id="answermsg"></p>
+            <img id='bobopoppin' src="./images/bobolost.jpg" alt="" width=50 height =50>
+          </section>
+          <section id="winPop">
+            <p>You WON!</p>
+            <img id='bobopoppin' src="./images/bobo.gif" alt="" width=50 height =50>
+          </section>
+          <div id="keyboard"></div>
+          <button class="btn btn-info" onClick="reset()">Reset</button>
+        </div> 
+      </div>
+      <section id='pop-up'>
+        <div>
+          <button id="close-pop-up">&#x2715</button>
+          <h2>WELCOME TO HANGMAN</h2>
+          <img id='bobopoppin' src="./images/bobo.gif" alt="">
+          <button id="play-now">PLAY NOW</button>
+         </div>
+        </section>
+      
+</body>
+</html>
