@@ -1,27 +1,24 @@
 
-const popup = document.getElementById('pop-up'); 
-const playNow = document.getElementById('play-now');
+const popup       = document.getElementById('pop-up'); 
+const playNow     = document.getElementById('play-now-btn');
 const closebutton = document.getElementById('close-pop-up');
-const winPop = document.getElementById('winPop');
-const mainImage = document.getElementById("hangmanPic");
-const miss = document.getElementById('mistakes');
-const key = document.getElementById('keyboard');
-const numGuesses = document.getElementById('chances');
-const message = document.getElementById('wordSpotlight');
-const answermsg = document.getElementById('answermsg');
+const winPop      = document.getElementById('winPop');
+const mainImage   = document.getElementById("hangmanPic");
+const miss        = document.getElementById('mistakes');
+const key         = document.getElementById('keyboard');
+const numGuesses  = document.getElementById('chances');
+const message     = document.getElementById('wordSpotlight');
+const answermsg   = document.getElementById('answermsg');
+var vegetables    = ['kale', 'broccoli', 'squash', 'lettuce', 'spinach', 'cauliflower', 'carrot', 'cucumber', 'zucchini', 'tomato', 'bakchoy', 'potato', 'beets', 'yam'];
 let popAnimation;
-let opacity = 0;
-
-let hasSeenPopUpAlready = false;
-
-var vegetables = ['kale', 'broccoli', 'squash', 'lettuce', 'spinach', 'cauliflower', 'carrot', 'cucumber', 'zucchini', 'tomato', 'bakchoy', 'potato', 'beets', 'yam'];
-
-let answer = ''; //the secret word
-let chances = 6; 
-let mistakes = 0; //# times you guess wrong
-let guessed = []; //guessed letters
-let wordStatus = null;//letters as underscores until they are guessed correctly
-let resetClickAlready = false;
+let opacity               = 0;
+let hasSeenPopUpAlready   = false;
+let answer                = ''; //the secret word
+let chances               = 6; 
+let mistakes              = 0; //# times you guess wrong
+let guessed               = []; //guessed letters
+let wordStatus            = null;//letters as underscores until they are guessed correctly
+let resetClickAlready     = false;
 
 
 
@@ -32,13 +29,13 @@ function randomWord() {
 //----------------
 
 
-//Bobo image
+//Update image.src
 function updateImage() {
   mainImage.src = 'images/' + mistakes + '.jpg';
 }
 //--------
 
-//PopUp showing play button
+//Display play button when game loads
 setTimeout(function(){
   if(hasSeenPopUpAlready ===true){
       cancelAnimationFrame(fadeIn);
@@ -46,6 +43,11 @@ setTimeout(function(){
       popAnimation = requestAnimationFrame(fadeIn);
   }
 });
+//----------------------
+
+
+
+//Popup fade in function
 function fadeIn() {
   opacity += .05;
   popup.style.opacity = opacity;
@@ -57,6 +59,9 @@ function fadeIn() {
          
 }
 //------------------
+
+
+
 //Closing the popup after clicking the play button
 closebutton.addEventListener('click', function (){
   popup.style.display = "none";
@@ -67,8 +72,6 @@ playNow.addEventListener('click', function(){
   popup.style.display = "none";
 });
 //-------------
-
-
 
 
 //Generates 26 keyboard buttons
@@ -104,6 +107,8 @@ function guess(string) {
     updateImage();
   }
 }
+//--------------
+
 
 function guessedWord() {
   wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
@@ -132,6 +137,7 @@ function lost() {
   if (mistakes === chances) {
     lostPop.style.display="block";
     message.innerHTML = 'The answer was: ' + answer;
+    reset();
   }
 }
 //------------------
