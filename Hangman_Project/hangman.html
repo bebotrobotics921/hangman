@@ -20,31 +20,39 @@
        
         <div>Wrong Guesses: <span id='mistakes'>0</span> / <span id='chances'></span></div>
         <div class="text-center">
-          <img id='hangmanPic' src="./images/0.jpg" alt="">
+          <img id='hangmanPic' src="./images/0.jpg" alt="" width=300 height=300>
         
           <p>Guess A Vegetable:</p>
           <p id="wordSpotlight"></p>
-          <section id="lostPop">
-            <p>You LOST!</p>
-            <p id="answermsg"></p>
-            <img id='bobopoppin' src="./images/bobolost.jpg" alt="" width=50 height =50>
-          </section>
-          <section id="winPop">
-            <p>You WON!</p>
-            <img id='bobopoppin' src="./images/bobo.gif" alt="" width=50 height =50>
-          </section>
+
+              <section id="lostPop">
+                <div>
+                <p>You LOST!</p>
+                <p id="answermsg"></p>
+                <img id='bobopoppin' src="./images/bobolost.jpg" alt="" width=50 height =50>
+                <button class="btn btn-info" onClick="reset()">Reset</button>
+              </div>
+              </section>
+
+              <section id="winPop">
+                <div>
+                <p>You WON!</p>
+                <img id='bobopoppin' src="./images/bobo.gif" alt="" width=50 height =50>
+                <button class="btn btn-info" onClick="reset()">Reset</button>
+              </div>
+              </section>
           <div id="keyboard"></div>
-          <button class="btn btn-info" onClick="reset()">Reset</button>
+          
         </div> 
       </div>
-      <section id='pop-up'>
-        <div>
-          <button id="close-pop-up">&#x2715</button>
-          <h2>WELCOME TO HANGMAN</h2>
-          <img id='bobopoppin' src="./images/bobo.gif" alt="">
-          <button id="play-now-btn">PLAY NOW</button>
-         </div>
-        </section>
+            <section id='pop-up'>
+              <div>
+                <button id="close-pop-up">&#x2715</button>
+                <h2>WELCOME TO HANGMAN</h2>
+                <img id='bobopoppin' src="./images/bobo.gif" alt="">
+                <button id="play-now-btn">PLAY NOW</button>
+              </div>
+              </section>
       
 </body>
 </html>

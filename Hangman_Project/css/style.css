@@ -2,7 +2,7 @@
 body{
   background-color:rgb(144, 200, 202);
 }
-#pop-up #winPop{
+#pop-up #winPop #lostPop{
   position:fixed;
   top:0px;
   left:0px;
@@ -21,6 +21,7 @@ body{
   
     max-width:500px;
     min-width:300px;
+    height: 300px;
     padding:10px;
     border-radius:10px;
     box-shadow: 0 0 0 2px rgb(144, 200, 202),
@@ -29,7 +30,40 @@ body{
     background-color: cadetblue;
     color:white;
   }
-
+  #winPop div{
+    position:absolute;
+    left:50%;
+    top:30%;
+    transform:translate(-50%, -50%);
+  
+    max-width:500px;
+    min-width:300px;
+    height: 300px;
+    padding:10px;
+    border-radius:10px;
+    box-shadow: 0 0 0 2px rgb(144, 200, 202),
+                0 0 0 4px cadetblue, 
+                 0 0 0 8px rgb(39, 103, 105);;
+    background-color: cadetblue;
+    color:white;
+  }
+  #lostPop div{
+    position:absolute;
+    left:50%;
+    top:30%;
+    transform:translate(-50%, -50%);
+  
+    max-width:500px;
+    min-width:300px;
+    height: 300px;
+    padding:10px;
+    border-radius:10px;
+    box-shadow: 0 0 0 2px rgb(144, 200, 202),
+                0 0 0 4px cadetblue, 
+                 0 0 0 8px rgb(39, 103, 105);;
+    background-color: cadetblue;
+    color:white;
+  }
   #close-pop-up{
     background-color: white;
     color:black;
@@ -73,5 +107,6 @@ body{
   border-radius: 5px;
   border: solid 2px white;
 }
-
-
+.btn{
+  display:inline;
+}

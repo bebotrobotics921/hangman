@@ -137,8 +137,8 @@ function lost() {
   if (mistakes === chances) {
     lostPop.style.display="block";
     message.innerHTML = 'The answer was: ' + answer;
-    reset();
   }
+  
 }
 //------------------
 
