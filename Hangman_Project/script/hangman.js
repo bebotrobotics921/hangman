@@ -20,7 +20,8 @@ let guessed               = []; //guessed letters
 let wordStatus            = null;//letters as underscores until they are guessed correctly
 let resetClickAlready     = false;
 
-
+const audioElement      = document.getElementById("audio-control");
+const sourceElement     = audioElement.firstElementChild;
 
 //Array of all the words
 function randomWord() {
@@ -100,15 +101,36 @@ function guess(string) {
   if (answer.indexOf(string) >= 0) {
     guessedWord();
     win();
+    playRightSong();
   } else if (answer.indexOf(string) === -1) {
     mistakes++;
     updateMistakes();
     lost();
+    playWrongSong();
     updateImage();
   }
 }
 //--------------
 
+function playWrongSong(){
+  console.log("WRONG");
+  //update the audio file source
+  sourceElement.setAttribute("src","audio/wrong.mp3");
+  //inform the HTML to load the new audio file
+  audioElement.load();
+  //play it!
+  audioElement.play();
+}
+
+function playRightSong(){
+  console.log("CORRECT");
+  //update the audio file source
+  sourceElement.setAttribute("src","audio/correct.mp3");
+  //inform the HTML to load the new audio file
+  audioElement.load();
+  //play it!
+  audioElement.play();
+}
 
 function guessedWord() {
   wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
