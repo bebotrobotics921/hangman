@@ -2,14 +2,14 @@
 body{
   background-color:rgb(144, 200, 202);
 }
-#pop-up #winPop #lostPop{
+#pop-up, #winPop, #lostPop{
   position:fixed;
   top:0px;
   left:0px;
   width:100vw;
   height:100vh; 
   z-index:1000;
-  background-color: rgba(45, 66, 66, .8);    
+  background-color: rgba(45, 66, 66, .7);    
 	font-size:.85em;
   }
  
@@ -33,7 +33,7 @@ body{
   #winPop div{
     position:absolute;
     left:50%;
-    top:30%;
+    top:50%;
     transform:translate(-50%, -50%);
   
     max-width:500px;
@@ -50,7 +50,7 @@ body{
   #lostPop div{
     position:absolute;
     left:50%;
-    top:30%;
+    top:50%;
     transform:translate(-50%, -50%);
   
     max-width:500px;
