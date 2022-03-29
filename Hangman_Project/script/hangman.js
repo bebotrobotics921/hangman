@@ -26,8 +26,10 @@ const sourceElement     = audioElement.firstElementChild;
 
 
 //Array of all the words
-function randomWord() {
-  answer = vegetables[Math.floor(Math.random() * vegetables.length)];
+function setAnswer() {
+  
+  var random = Math.floor(Math.random()* vegetables.length)
+    answer = vegetables[random]
 }
 //----------------
 
@@ -97,7 +99,7 @@ function generateButtons() {
 
 //Guess the word
 function guess(string) {
-  guessed.indexOf(string) === -1 ? guessed.push(string) : null;//equivalent to if else statement
+  guessed.indexOf(string) === -1 ? guessed.push(string) : null;
   document.getElementById(string).setAttribute('disabled', true);
 
   if (answer.indexOf(string) >= 0) {
@@ -113,27 +115,25 @@ function guess(string) {
   }
 }
 //--------------
-
+//play sound when click on keyboard 
 function playWrongSong(){
-  console.log("WRONG");
-  //update the audio file source
+  
   sourceElement.setAttribute("src","audio/wrong.mp3");
-  //inform the HTML to load the new audio file
+  
   audioElement.load();
-  //play it!
+  
   audioElement.play();
 }
 
 function playRightSong(){
-  console.log("CORRECT");
-  //update the audio file source
+  
   sourceElement.setAttribute("src","audio/correct.mp3");
-  //inform the HTML to load the new audio file
+  
   audioElement.load();
-  //play it!
+ 
   audioElement.play();
 }
-
+//------------------------------
 function guessedWord() {
   wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
   message.innerHTML = wordStatus;
@@ -160,7 +160,7 @@ lostPop.style.display="none";
 function lost() {
   if (mistakes === chances) {
     lostPop.style.display="block";
-    answermsg.innerHTML = 'The answer was: ' + answer;
+    answermsg.innerHTML = 'Answer: ' + answer;
   }
   
 }
@@ -175,7 +175,7 @@ function reset() {
   mainImage.src = 'images/0.jpg';
   winPop.style.display="none";
   lostPop.style.display="none";
-  randomWord();
+  setAnswer();
   guessedWord();
   updateMistakes();
   generateButtons();
@@ -184,9 +184,9 @@ function reset() {
 
 
 
-numGuesses.innerHTML = chances;//setting the max number of wrong guesses a play can get per game
+numGuesses.innerHTML = chances;
 //Calling functions
-randomWord();
+setAnswer();
 generateButtons();
 guessedWord();
 //-------------------
