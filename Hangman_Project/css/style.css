@@ -88,6 +88,7 @@ body{
   cursor: pointer;
  
   }
+ 
 
   .btn  {
     background-color: rgb(39, 103, 105);
@@ -99,7 +100,7 @@ body{
     border-radius: 5px;
     border: solid 2px white;
   }
-  
+
   /* custom.css */
   /*override the bootstrap css*/
 .btn-primary.disabled, .btn-primary:disabled{

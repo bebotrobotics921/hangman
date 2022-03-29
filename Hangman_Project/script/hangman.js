@@ -23,6 +23,8 @@ let resetClickAlready     = false;
 const audioElement      = document.getElementById("audio-control");
 const sourceElement     = audioElement.firstElementChild;
 
+
+
 //Array of all the words
 function randomWord() {
   answer = vegetables[Math.floor(Math.random() * vegetables.length)];
@@ -158,7 +160,7 @@ lostPop.style.display="none";
 function lost() {
   if (mistakes === chances) {
     lostPop.style.display="block";
-    message.innerHTML = 'The answer was: ' + answer;
+    answermsg.innerHTML = 'The answer was: ' + answer;
   }
   
 }
