@@ -17,7 +17,7 @@ let answer                = ''; //the secret word
 let chances               = 6; 
 let mistakes              = 0; //# times you guess wrong
 let guessed               = []; //guessed letters
-let wordStatus            = null;//letters as underscores until they are guessed correctly
+let currentWord            = null;//letters as underscores until they are guessed correctly
 let resetClickAlready     = false;
 
 const audioElement      = document.getElementById("audio-control");
@@ -135,8 +135,8 @@ function playRightSong(){
 }
 //------------------------------
 function guessedWord() {
-  wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
-  message.innerHTML = wordStatus;
+  currentWord = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
+  message.innerHTML = currentWord;
 }
 
 function updateMistakes() {
@@ -147,7 +147,7 @@ function updateMistakes() {
 winPop.style.display= "none";
 
 function win() {
-  if (wordStatus === answer) {
+  if (currentWord === answer) {
     winPop.style.display="block";
   }
   else{
