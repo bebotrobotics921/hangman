@@ -83,14 +83,7 @@ playNow.addEventListener('click', function(){
 function generateButtons() {
   let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
     `
-      <button
-        class="btn btn-lg btn-primary m-2"
-        id='` + letter + `'
-        onClick="guess('` + letter + `')"
-      >
-        ` + letter + `
-      </button>
-    `).join('');
+      <button class="btn btn-lg btn-primary m-2" id='` + letter + `' onClick="guess('` + letter + `')"> ` + letter + `</button> `).join('');
 
   key.innerHTML = buttonsHTML;
 }
