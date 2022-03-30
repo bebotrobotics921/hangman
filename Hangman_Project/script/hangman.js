@@ -99,18 +99,21 @@ function generateButtons() {
 
 //Guess the word
 function guess(string) {
-  guessed.indexOf(string) === -1 ? guessed.push(string) : null;
-  document.getElementById(string).setAttribute('disabled', true);
+  if(guessed.indexOf(string) === -1){
+     guessed.push(string)===null;
+    document.getElementById(string).setAttribute('disabled', true);
+  }
 
   if (answer.indexOf(string) >= 0) {
     guessedWord();
-    win();
     playRightSong();
+    win();
+    
   } else if (answer.indexOf(string) === -1) {
     mistakes++;
-    updateMistakes();
-    lost();
+    updateMiss();
     playWrongSong();
+    lost();
     updateImage();
   }
 }
@@ -139,7 +142,7 @@ function guessedWord() {
   message.innerHTML = currentWord;
 }
 
-function updateMistakes() {
+function updateMiss() {
   miss.innerHTML = mistakes;
 }
 //----------------
@@ -168,8 +171,8 @@ function lost() {
 
 
 
-//Reset the game or to play again
-function reset() {
+//Reload the game or to play again
+function reload() {
   mistakes = 0;
   guessed = [];
   mainImage.src = 'images/0.jpg';
@@ -177,7 +180,7 @@ function reset() {
   lostPop.style.display="none";
   setAnswer();
   guessedWord();
-  updateMistakes();
+  updateMiss();
   generateButtons();
 }
 //-----------------

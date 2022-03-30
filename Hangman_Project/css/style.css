@@ -88,7 +88,30 @@ body{
   cursor: pointer;
  
   }
- 
+  header{
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    height: 4.5em;
+    align-items: center;
+    font-size: large;
+    line-height: 5.5em;
+    font-weight: bolder;
+    
+}
+  footer{
+    display:flex;
+    flex-direction: row;
+    text-align: center;
+    position: relative;
+    clear:both;
+    margin-top: 500px;
+    font-family: 'Times New Roman', Times, serif; 
+    padding-left: 20px;
+    
+}
+
+
 
   .btn  {
     background-color: rgb(39, 103, 105);
